@@ -1,7 +1,7 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import "../home/home.css"
 
-function App() {
+const Home = () => {
   return (
     <>
       <div className="bg-transparent grid grid-cols-3 gap-3 text-center">
@@ -22,6 +22,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
-export default App;
+export default Home;
