@@ -9,14 +9,17 @@
 .boton1 {
   background-color: rgb(17, 61, 145);
   border-radius: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .boton2 {
   background-color: rgb(29, 29, 29);
   border-radius: 5%;
-}
-
-.imgCarro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contenedor-carro {

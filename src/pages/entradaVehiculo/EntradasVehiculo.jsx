@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+
+import Nav from "../../components/Nav";
 
 const EntradasVehiculo = () => {
   return (
-    <div>entradasVehiculo</div>
-  )
-}
+    <>
+      <Nav 
+      ruta1="/"
+      enlace1 = "Inicio"
+      titulo = "Control de Vehículos"
+      enlace2 = "Registrar Vehículo"
+      ruta2="/registrar-vehiculo"
+      />
+    </>
+  );
+};
 
-export default EntradasVehiculo
+export default EntradasVehiculo;
