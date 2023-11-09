@@ -1,0 +1,30 @@
+.contenedor-tabla {
+  text-align: center;
+}
+
+.titulo {
+  color: white;
+  font-weight: bold;
+  align-content: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tabla {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 100, 173, 1) 0%,
+    rgba(0, 130, 171, 1) 78%
+  );
+  margin: 0 auto;
+  width: 50rem;
+}
+thead{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+tbody {
+  color: white;
+}

@@ -23,6 +23,8 @@ const AppRoutes = () => {
 };
 
 const App = () => {
+  /** De esta forma se leen las variables de entorno en React VITE */
+  console.log(import.meta.env.VITE_BACKEND_URL);
   return (
     <>
       <BrowserRouter>
