@@ -1,9 +1,16 @@
-import React from "react";
+import { useState } from "react";
 
 import Nav from "../../components/Nav";
 import Tabla from "../../components/Tabla";
+import Formulario from "../../components/Formulario";
 
 const RegistrarVehiculo = () => {
+  const [mostrarComponente, setMostrarComponente] = useState(true);
+
+  const cambiarComponente = () => {
+    setMostrarComponente(!mostrarComponente);
+  };
+
   return (
     <>
       <Nav
@@ -13,7 +20,11 @@ const RegistrarVehiculo = () => {
         enlace2="Registrar Entradas/Salidas"
         ruta2="/registrar-entradas"
       />
-      <Tabla />
+      {mostrarComponente ? (
+        <Tabla cambiarComponente={cambiarComponente} />
+      ) : (
+        <Formulario cambiarComponente={cambiarComponente} />
+      )}
     </>
   );
 };
