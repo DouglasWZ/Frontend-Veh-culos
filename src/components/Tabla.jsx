@@ -14,6 +14,21 @@ const Tabla = ({ cambiarComponente }) => {
     const resp = await clienteAxios.get("/vehiculos");
     setVehiculos(resp.data.vehiculos);
   };
+
+  const handleDelete = async (placa) => {
+    try {
+      // Realiza la solicitud DELETE a la API para eliminar el registro con la placa dada
+      await clienteAxios.delete(`/vehiculos/${placa}`);
+
+      // Actualiza el estado de los vehículos
+      setVehiculos((prevDatos) =>
+        prevDatos.filter((vehiculo) => vehiculo.placa !== placa)
+      );
+    } catch (error) {
+      console.log("Error al eliminar el registro", error);
+    }
+  };
+
   return (
     <>
       <div className="posts">
@@ -47,7 +62,7 @@ const Tabla = ({ cambiarComponente }) => {
                   </th>
                   <th>
                     <button
-                      onClick={() => handleDelete(post)}
+                      onClick={() => handleDelete(vehiculo.placa)}
                       className="btn btn-danger"
                     >
                       Delete
