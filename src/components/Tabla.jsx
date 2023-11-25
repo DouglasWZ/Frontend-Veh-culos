@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import Alerta from "./Alerta";
 
 import clienteAxios from "../config/axios";
 
 const Tabla = ({ cambiarComponente }) => {
   const [vehiculos, setVehiculos] = useState([]);
+  const [alerta, setAlerta] = useState({});
 
   // Minuto 23:12 curso de fernando herrera. el useEffect es para que cuando se cree el componente solo ejecute una vez la funcion
   useEffect(() => {
@@ -24,15 +26,27 @@ const Tabla = ({ cambiarComponente }) => {
       setVehiculos((prevDatos) =>
         prevDatos.filter((vehiculo) => vehiculo.placa !== placa)
       );
+
+      // Alerta de Vehículo eliminado Correctamente
+      setAlerta({
+        msg: "Vehículo eliminado correctamente",
+      });
+
+      setTimeout(() => {
+        setAlerta({});
+      }, 2000);
     } catch (error) {
       console.log("Error al eliminar el registro", error);
     }
   };
 
+  const { msg } = alerta;
+
   return (
     <>
       <div className="posts">
         <div className="container">
+          {msg && <Alerta alerta={alerta} />}
           <button onClick={cambiarComponente} className="btn btn-primary mb-4">
             Nuevo Vehículo
           </button>

@@ -9,9 +9,9 @@ const Formulario = ({ cambiarComponente }) => {
 
   const [alerta, setAlerta] = useState({});
 
-  // Función para manejar el envio del formulario
+  // Función para manejar el envío del formulario
   const handleGuardar = async () => {
-    // Validar el Formulario
+    // Validar que el formulario no esté vacio
     if ([marca, modelo, placa].includes("")) {
       setAlerta({
         msg: "Todos los campos son obligatorios",
@@ -41,8 +41,26 @@ const Formulario = ({ cambiarComponente }) => {
       setMarca("");
       setModelo("");
       setPlaca("");
+
+      // Alerta de Vehículo guardado Correctamente
+      setAlerta({
+        msg: "Vehículo Guardado Correctamente",
+      });
+      
     } catch (error) {
       console.log("Error al enviar los datos", error);
+
+      // Verificar si el error es debido a un vehículo duplicado
+      if (
+        error.response &&
+        error.response.status === 400 &&
+        error.response.data.msg === "Vehículo ya registrado"
+      ) {
+        setAlerta({
+          msg: "El vehículo ya está registrado",
+          error: true,
+        });
+      }
     }
   };
 
