@@ -46,7 +46,11 @@ const Formulario = ({ cambiarComponente }) => {
       setAlerta({
         msg: "Vehículo Guardado Correctamente",
       });
-      
+
+      // Duracion de la alerta
+      setTimeout(() => {
+        setAlerta({});
+      }, 2000);
     } catch (error) {
       console.log("Error al enviar los datos", error);
 
@@ -60,6 +64,9 @@ const Formulario = ({ cambiarComponente }) => {
           msg: "El vehículo ya está registrado",
           error: true,
         });
+        setTimeout(() => {
+          setAlerta({});
+        }, 2000);
       }
     }
   };
